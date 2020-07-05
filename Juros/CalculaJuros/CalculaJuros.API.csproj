@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>16312630-2f39-4246-b12f-3ecb8cf51465</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CalculaJuros.Integration\CalculaJuros.Integration.csproj" />
+    <ProjectReference Include="..\CalculaJuros.Service\CalculaJuros.Service.csproj" />
+  </ItemGroup>
+
+
+</Project>

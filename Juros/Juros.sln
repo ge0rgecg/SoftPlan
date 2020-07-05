@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxaJuros.API", "TaxaJuros\TaxaJuros.API.csproj", "{B47485E7-21FC-48B9-B795-D8B0923B7A04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculaJuros.API", "CalculaJuros\CalculaJuros.API.csproj", "{A92B02F4-51E1-47C5-9457-617344F33021}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculaJuros.Service", "CalculaJuros.Service\CalculaJuros.Service.csproj", "{17F9CFD5-26FB-43A4-8963-EEE3CC5F9F30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculaJuros.Integration", "CalculaJuros.Integration\CalculaJuros.Integration.csproj", "{05C80552-4AE7-423A-8A5A-5C4042CD790E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B47485E7-21FC-48B9-B795-D8B0923B7A04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B47485E7-21FC-48B9-B795-D8B0923B7A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B47485E7-21FC-48B9-B795-D8B0923B7A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B47485E7-21FC-48B9-B795-D8B0923B7A04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A92B02F4-51E1-47C5-9457-617344F33021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A92B02F4-51E1-47C5-9457-617344F33021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A92B02F4-51E1-47C5-9457-617344F33021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A92B02F4-51E1-47C5-9457-617344F33021}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17F9CFD5-26FB-43A4-8963-EEE3CC5F9F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17F9CFD5-26FB-43A4-8963-EEE3CC5F9F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17F9CFD5-26FB-43A4-8963-EEE3CC5F9F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17F9CFD5-26FB-43A4-8963-EEE3CC5F9F30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05C80552-4AE7-423A-8A5A-5C4042CD790E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05C80552-4AE7-423A-8A5A-5C4042CD790E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05C80552-4AE7-423A-8A5A-5C4042CD790E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05C80552-4AE7-423A-8A5A-5C4042CD790E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C4B01E7-37F2-44E8-8C42-FE5C1B37DB37}
+	EndGlobalSection
+EndGlobal
