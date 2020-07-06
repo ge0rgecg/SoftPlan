@@ -9,7 +9,7 @@ namespace CalculaJuros.Service.Service
 
         public CalculaJurosService(ITaxaJurosProvider taxaJurosProvider)
         {
-            _taxaJurosProvider = taxaJurosProvider;
+            _taxaJurosProvider = taxaJurosProvider == null ? throw new ArgumentNullException("taxaJurosProvider") : taxaJurosProvider;
         }
 
         public decimal calculo(decimal valorInicial, int tempo)

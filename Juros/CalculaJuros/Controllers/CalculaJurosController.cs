@@ -1,6 +1,7 @@
 ﻿using CalculaJuros.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using System;
 
 namespace CalculaJuros.API.Controllers
 {
@@ -16,8 +17,8 @@ namespace CalculaJuros.API.Controllers
             ICalculaJurosService calculaJurosService,
             IOptions<CalculaJurosApiSettings> options)
         {
-            _calculaJurosService = calculaJurosService;
-            _calculaJurosSettings = options.Value;
+            _calculaJurosService = calculaJurosService == null ? throw new ArgumentNullException("calculaJurosService") : calculaJurosService;
+            _calculaJurosSettings = options?.Value == null ? throw new ArgumentNullException("options") : options.Value;
         }
 
         // GET: api/<CalculaJurosController>

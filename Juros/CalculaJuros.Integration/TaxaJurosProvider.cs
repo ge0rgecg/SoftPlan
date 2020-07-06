@@ -12,7 +12,7 @@ namespace CalculaJuros.Integration
 
         public TaxaJurosProvider(IOptions<CalculaJurosIntegrationSettings> options)
         {
-            _calculaJurosSettings = options.Value;
+            _calculaJurosSettings = options?.Value == null ? throw new ArgumentNullException("options") : options.Value;
         }
 
         public decimal obterTaxaJuros()

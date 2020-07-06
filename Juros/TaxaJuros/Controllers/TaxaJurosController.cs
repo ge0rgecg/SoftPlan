@@ -6,7 +6,7 @@ namespace TaxaJuros.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TaxaJuros : ControllerBase
+    public class TaxaJurosController : ControllerBase
     {
         // GET: api/<taxaJuros>
         [HttpGet]
