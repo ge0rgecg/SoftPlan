@@ -1,4 +1,5 @@
 ﻿using CalculaJuros.Service.Interface;
+using Microsoft.Extensions.Options;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -7,6 +8,13 @@ namespace CalculaJuros.Integration
 {
     public class TaxaJurosProvider : ITaxaJurosProvider
     {
+        private CalculaJurosIntegrationSettings _calculaJurosSettings;
+
+        public TaxaJurosProvider(IOptions<CalculaJurosIntegrationSettings> options)
+        {
+            _calculaJurosSettings = options.Value;
+        }
+
         public decimal obterTaxaJuros()
         {
             using (var client = new HttpClient(new HttpClientHandler()
@@ -14,15 +22,13 @@ namespace CalculaJuros.Integration
                 AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
             }))
             {
+                client.BaseAddress = new Uri(_calculaJurosSettings.urlTaxaJuros);
 
-                client.BaseAddress = new Uri("https://localhost:55771/");
-
-                HttpResponseMessage response = client.GetAsync("api/TaxaJuros").Result;
+                HttpResponseMessage response = client.GetAsync("").Result;
                 response.EnsureSuccessStatusCode();
-                string result = response.Content.ReadAsStringAsync().Result;
-                
-                
-                return Decimal.Parse(result);
+                var result = response.Content.ReadAsStringAsync().Result;
+
+                return Convert.ToDecimal(result.Replace('.', ','));
             }
         }
     }

@@ -1,12 +1,17 @@
 ﻿using CalculaJuros.Service.Interface;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CalculaJuros.Service.Service
 {
     public class CalculaJurosService : ICalculaJurosService
     {
+        private ITaxaJurosProvider _taxaJurosProvider;
+
+        public CalculaJurosService(ITaxaJurosProvider taxaJurosProvider)
+        {
+            _taxaJurosProvider = taxaJurosProvider;
+        }
+
         public decimal calculo(decimal valorInicial, int tempo)
         {
             var isValid = validarCalculo(valorInicial, tempo);
@@ -16,12 +21,11 @@ namespace CalculaJuros.Service.Service
                 throw new Exception(isValid);
             }
 
-            throw new NotImplementedException();
-        }
+            var juros = _taxaJurosProvider.obterTaxaJuros();
 
-        public string gitURL()
-        {
-            throw new NotImplementedException();
+            var valorFinal = valorInicial * (Decimal)Math.Pow((double)(1 + juros), tempo);
+
+            return decimal.Round(valorFinal, 2);
         }
 
         private string validarCalculo(decimal valorInicial, int tempo)

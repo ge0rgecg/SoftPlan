@@ -1,5 +1,6 @@
 ﻿using CalculaJuros.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace CalculaJuros.API.Controllers
 {
@@ -7,15 +8,20 @@ namespace CalculaJuros.API.Controllers
     [ApiController]
     public class CalculaJurosController : ControllerBase
     {
-        public readonly ICalculaJurosService _calculaJurosService;
+        private readonly ICalculaJurosService _calculaJurosService;
 
-        public CalculaJurosController(ICalculaJurosService calculaJurosService)
+        private CalculaJurosApiSettings _calculaJurosSettings;
+
+        public CalculaJurosController(
+            ICalculaJurosService calculaJurosService,
+            IOptions<CalculaJurosApiSettings> options)
         {
             _calculaJurosService = calculaJurosService;
+            _calculaJurosSettings = options.Value;
         }
 
         // GET: api/<CalculaJurosController>
-        [HttpGet("{valorInicial}?{meses}")]
+        [HttpGet("{valorInicial}/{meses}")]
         public decimal Get(decimal valorInicial, int meses)
         {
             return _calculaJurosService.calculo(valorInicial, meses);
@@ -25,7 +31,7 @@ namespace CalculaJuros.API.Controllers
         [HttpGet("/showmethecode")]
         public string ShowMeTheCode()
         {
-            return _calculaJurosService.gitURL();
+            return _calculaJurosSettings.GitUrl;
         }
 
     }
