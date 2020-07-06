@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "40b57bde-80ea-40c9-94b3-d41d20fb7376",
+		"name": "Juros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Taxa Juros",
+			"item": [
+				{
+					"name": "Taxa de Juros",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "00e8b06c-7ba0-49b2-8cea-42514928e582",
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"0.01\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/TaxaJuros",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"TaxaJuros"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Calcula Juros",
+			"item": [
+				{
+					"name": "Show me The Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fcf47bb8-4fd5-46ce-abe9-d2c89bcc3310",
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response must be valid and have jsonBody\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.have.jsonBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"https://github.com/ge0rgecg/SoftPlan\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5051/showmethecode",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5051",
+							"path": [
+								"showmethecode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calcula Juros Ok",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6b9a6848-f1cd-4484-90be-09e223539949",
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"105.10\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5051/api/CalculaJuros/100/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5051",
+							"path": [
+								"api",
+								"CalculaJuros",
+								"100",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calcula Juros NOk - Meses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6732013f-67c1-40b8-8600-c93ecacf7ff4",
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response must be serverError\", function () {\r",
+									"     pm.response.to.be.serverError;\r",
+									"     pm.response.to.have.jsonBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"O parametro Tempo é inválido.\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5051/api/CalculaJuros/100/-1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5051",
+							"path": [
+								"api",
+								"CalculaJuros",
+								"100",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calcula Juros NOk - Valor Inicial",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "84240768-5dc9-4229-a960-b285a07de783",
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response must be serverError\", function () {\r",
+									"     pm.response.to.be.serverError;\r",
+									"     pm.response.to.have.jsonBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"O parametro Valor Inicial é inválido.\");\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5051/api/CalculaJuros/-1/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5051",
+							"path": [
+								"api",
+								"CalculaJuros",
+								"-1",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
