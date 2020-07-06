@@ -8,6 +8,8 @@ services:
     build:
       context: .
       dockerfile: CalculaJuros/Dockerfile
+    depends_on:
+      - taxajuros.api
   taxajuros.api:
     image: taxajurosapi
     ports:
