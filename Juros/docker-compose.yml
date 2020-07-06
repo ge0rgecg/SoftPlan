@@ -4,14 +4,14 @@ services:
   calculajuros.api:
     image: calculajurosapi
     ports:
-      - "5080:443"
+      - "5051:443"
     build:
       context: .
       dockerfile: CalculaJuros/Dockerfile
   taxajuros.api:
     image: taxajurosapi
     ports:
-      - "5040:443"
+      - "5001:443"
     build:
       context: .
       dockerfile: TaxaJuros/Dockerfile

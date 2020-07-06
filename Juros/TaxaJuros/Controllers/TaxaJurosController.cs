@@ -1,16 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace TaxaJuros.Controllers
 {
+    /// <summary>
+    /// Controller responsavel por informar a Taxa de Juros.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class TaxaJurosController : ControllerBase
     {
-        // GET: api/<taxaJuros>
+        /// <summary>
+        /// Informo a taxa de Juros.
+        /// </summary>
+        /// <returns>Valor em decimal da taxa de Juros.</returns>
         [HttpGet]
-        //[Route("taxaJuros")]
         public decimal Get()
         {
             return 0.01M;
