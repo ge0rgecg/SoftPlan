@@ -1,7 +1,9 @@
-﻿namespace CalculaJuros.Service.Interface
+﻿using System.Threading.Tasks;
+
+namespace CalculaJuros.Service.Interface
 {
     public interface ITaxaJurosProvider
     {
-        decimal obterTaxaJuros();
+        Task<decimal> obterTaxaJuros();
     }
 }
